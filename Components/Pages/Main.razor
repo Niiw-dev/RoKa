@@ -1,0 +1,319 @@
+@using System.ComponentModel.DataAnnotations
+@page "/"
+
+
+<PageTitle>ROKA | Constructora de Innovacion</PageTitle>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<div class="animated-bg">
+    <div class="grid-line vertical-line" style="left: 20%;"></div>
+    <div class="grid-line vertical-line" style="left: 40%;"></div>
+    <div class="grid-line vertical-line" style="left: 60%;"></div>
+    <div class="grid-line vertical-line" style="left: 80%;"></div>
+    <div class="grid-line horizontal-line" style="top: 20%;"></div>
+    <div class="grid-line horizontal-line" style="top: 40%;"></div>
+    <div class="grid-line horizontal-line" style="top: 60%;"></div>
+    <div class="grid-line horizontal-line" style="top: 80%;"></div>
+</div>
+
+<header class="header">
+    <div style="text-align: center; line-height: 1; margin: 0; padding: 0;">
+        <span style="
+            display: block;
+            margin: 0;
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+        ">RoKa</span>
+
+        <span style="
+            display: block;
+            margin: 0;
+            margin-top: -4px;
+            font-size: 1.6rem;
+            transform: scaleY(0.7);
+            transform-origin: top;
+        ">Soluciones</span>
+
+    </div>
+    
+    <nav class="navbar">
+        <a href="#home">Inicio</a>
+        <a href="#services">Servicios</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#about">Nosotros</a>
+        <a href="#testimonials">Testimonios</a>
+        <a href="#contact">Contacto</a>
+    </nav>
+    <div class="menu-icon">☰</div>
+</header>
+
+<section class="hero" id="home">
+    <img src="/api/placeholder/1920/1080" alt="Imagen de construcción moderna" class="hero-bg">
+    <div class="hero-content">
+        <h1>Construyendo el <span class="highlight">Futuro</span> de tu Visión</h1>
+        <p>ROKA trae soluciones a tu vida, con respaldo y garantía en nuestro servicio.</p>
+        <a href="#contact" class="btn">Solicitar Presupuesto</a>
+    </div>
+</section>
+
+<section class="section services" id="services">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="scroll-wrapper" id="scrollWrapper">
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Obra Civil</h3>
+                <p>Realizamos todo tipo de trabajos de construcción, desde estructuras nuevas hasta adecuaciones, garantizando calidad, seguridad y cumplimiento.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏡</div>
+                <h3>Remodelaciones</h3>
+                <p>Dale un nuevo aire a tu hogar o negocio. Rediseñamos y mejoramos interiores y exteriores según tus necesidades.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Cubiertas en Policarbonato</h3>
+                <p>Instalamos cubiertas modernas y resistentes que brindan iluminación sin comprometer la protección contra el clima.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌱</div>
+                <h3>Divisiones de Baño</h3>
+                <p>Fabricamos e instalamos divisiones elegantes y funcionales en vidrio templado o acrílico, adaptadas a tu espacio.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Electricidad Residencial</h3>
+                <p>Diseñamos e instalamos sistemas eléctricos eficientes, seguros y adaptados a las normas vigentes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✏️</div>
+                <h3>Muebles con Alma de Hierro</h3>
+                <p>Creamos muebles personalizados que combinan hierro estructural y acabados de alta calidad para espacios modernos y duraderos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✏️</div>
+                <h3>Carpintería Metálica</h3>
+                <p>Fabricamos estructuras, puertas, ventanas y acabados en metal con precisión y estilo, adaptados a tu proyecto.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section projects" id="projects">
+    <h2 class="section-title">Nuestros Trabajos</h2>
+
+    <div class="projects-container">
+        <div class="project-card">
+            <img src="https://cdn.dribbble.com/users/545884/screenshots/3892302/contact.png" alt="Proyecto Comercial" class="project-img">
+            <div class="project-overlay">
+                <h3>Centro Empresarial Vértice</h3>
+                <p>Edificio de oficinas con certificación LEED y tecnología inteligente.</p>
+                <a href="#" class="btn">Ver Detalles</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://cdn.dribbble.com/users/545884/screenshots/4154721/dive--001.png" alt="Proyecto Residencial" class="project-img">
+            <div class="project-overlay">
+                <h3>Residencial Bosque Alto</h3>
+                <p>Complejo residencial sostenible con áreas verdes y amenidades exclusivas.</p>
+                <a href="#" class="btn">Ver Detalles</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://cdn.dribbble.com/users/545884/screenshots/3695553/news.png" alt="Proyecto Industrial" class="project-img">
+            <div class="project-overlay">
+                <h3>Planta Tecnológica Innovare</h3>
+                <p>Centro de producción con sistemas automatizados y eficiencia energética.</p>
+                <a href="#" class="btn">Ver Detalles</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://cdn.dribbble.com/users/545884/screenshots/4356121/darko--dr.jpg" alt="Proyecto Comercial" class="project-img">
+            <div class="project-overlay">
+                <h3>Plaza Comercial Aurora</h3>
+                <p>Centro comercial con diseño biofílico y experiencias inmersivas.</p>
+                <a href="#" class="btn">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section stats">
+    <h2 class="section-title">RoKa en Números</h2>
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-text">Proyectos Completados</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">12</div>
+            <div class="stat-text">Años de Experiencia</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">96%</div>
+            <div class="stat-text">Clientes Satisfechos</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-text">Profesionales Expertos</div>
+        </div>
+    </div>
+</section>
+
+<section class="section testimonials" id="testimonials">
+    <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+    <div class="testimonials-container">
+        <div class="testimonial-card">
+            <p class="testimonial-text">ROKA superó todas nuestras expectativas. Su enfoque innovador y atención al detalle transformaron nuestra visión en una realidad impresionante.</p>
+<!--                <div class="testimonial-author">-->
+<!--                    <img src="/api/placeholder/100/100" alt="Avatar" class="author-avatar">-->
+<!--                    <div>-->
+<!--                        <div class="author-name">Carlos Ramírez</div>-->
+<!--                        <div class="author-title">Director General, Grupo Innovar</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-text">La profesionalidad y compromiso del equipo de ROKA hizo que nuestro proyecto se completara a tiempo y dentro del presupuesto. Definitivamente trabajaremos con ellos nuevamente.</p>
+<!--                <div class="testimonial-author">-->
+<!--                    <img src="/api/placeholder/100/100" alt="Avatar" class="author-avatar">-->
+<!--                    <div>-->
+<!--                        <div class="author-name">María González</div>-->
+<!--                        <div class="author-title">Gerente de Proyectos, Desarrollos Urbanos</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+        </div>
+        <div class="testimonial-card largeII">
+            <p class="testimonial-text">La calidad de construcción y el enfoque sostenible de ROKA nos permitió obtener la certificación que buscábamos. Su experiencia en construcción verde es inigualable.</p>
+<!--                <div class="testimonial-author">-->
+<!--                    <img src="/api/placeholder/100/100" alt="Avatar" class="author-avatar">-->
+<!--                    <div>-->
+<!--                        <div class="author-name">Javier Méndez</div>-->
+<!--                        <div class="author-title">Fundador, EcoSpaces</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+        </div>
+    </div>
+</section>
+
+<section class="section cta">
+    <h2>¿Listo para Hacer Realidad tu Proyecto?</h2>
+    <p>Permítenos transformar tus ideas en construcciones excepcionales. Nuestro equipo está preparado para llevar tu visión al siguiente nivel.</p>
+    <a href="#contact" class="btn">Contáctanos Hoy</a>
+</section>
+
+<section class="section contact" id="contact">
+    <h2 class="section-title">Ponte en Contacto</h2>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Información de Contacto</h3>
+            <p><i>✉️</i> rodrigo.fernandez2@hotmail.com</p>
+            <p><i>📞</i> +57 310 259 3593</p>
+            <p style="margin-bottom: 0"><i>⏰</i> Lunes - Viernes: 7:00 AM - 6:00 PM </p>
+            <p style="margin-left: 3rem;margin-top: 0;margin-bottom: 0">/ Sábados: 10:00 AM - 4:00 PM</p>
+        </div>
+        <div class="contact-form">
+            <h3>Envíanos un Mensaje</h3>
+            <EditForm Model="@contactForm" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <InputText id="name" class="form-control" @bind-Value="contactForm.Name" />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <InputText id="email" class="form-control" @bind-Value="contactForm.Email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <InputText id="phone" class="form-control" @bind-Value="contactForm.Phone" />
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Asunto</label>
+                    <InputText id="subject" class="form-control" @bind-Value="contactForm.Subject" />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <InputTextArea id="message" class="form-control" @bind-Value="contactForm.Message" />
+                </div>
+
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </EditForm>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>Sobre <span class="red-accent">RoKa</span></h4>
+            <p>Transformamos espacios con soluciones innovadoras que combinan funcionalidad, estética y sostenibilidad.</p>
+            <img src="https://cdn.dribbble.com/users/545884/screenshots/3892302/contact.png" alt="Avatar" class="author-avatar">
+        </div>
+        <div class="footer-col">
+            <h4>Enlaces Rápidos</h4>
+            <ul class="footer-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Servicios</h4>
+            <ul class="footer-links">
+                <li><a href="#">Obra Civil</a></li>
+                <li><a href="#">Remodelaciones</a></li>
+                <li><a href="#">Cubiertas en Policarbonato</a></li>
+                <li><a href="#">Divisiones de baño</a></li>
+                <li><a href="#">Electricidad Residencial</a></li>
+                <li><a href="#">Muebles con Alma de hierro</a></li>
+                <li><a href="#">Carpintería Metálica</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+@code {
+    private ContactFormModel contactForm = new();
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("Formulario enviado:");
+        Console.WriteLine($"Nombre: {contactForm.Name}");
+        Console.WriteLine($"Email: {contactForm.Email}");
+        Console.WriteLine($"Teléfono: {contactForm.Phone}");
+        Console.WriteLine($"Asunto: {contactForm.Subject}");
+        Console.WriteLine($"Mensaje: {contactForm.Message}");
+    }
+
+    public class ContactFormModel
+    {
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "El correo es obligatorio")]
+        [EmailAddress(ErrorMessage = "Correo inválido")]
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
+
+        [Required(ErrorMessage = "El asunto es obligatorio")]
+        public string Subject { get; set; }
+
+        [Required(ErrorMessage = "El mensaje es obligatorio")]
+        public string Message { get; set; }
+    }
+}

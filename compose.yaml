@@ -1,0 +1,10 @@
+﻿services:
+  roka:
+    image: roka
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8080"
+    volumes:
+      - .:/app:cached
