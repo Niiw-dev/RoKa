@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8080
 
 # Comando para iniciar dotnet watch en modo desarrollo
-CMD ["dotnet", "watch", "run", "--urls=http://0.0.0.0:8080"]
+CMD ["dotnet", "run", "--urls=http://0.0.0.0:8080"]
