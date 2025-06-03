@@ -1,31 +1,35 @@
 using RoKa.Components;
 using RoKa.Services;
+using RoKa.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-// Configurar EmailService
+
+builder.Services.AddSignalR();
+
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddTransient<IEmailService, EmailService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 
+app.MapBlazorHub();
 
 app.UseAntiforgery();
 
 app.MapStaticAssets();
+
+app.MapHub<EmailNotificationHub>("/emailNotificationHub");
+
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

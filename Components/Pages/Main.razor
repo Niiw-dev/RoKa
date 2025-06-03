@@ -1,6 +1,7 @@
-@page "/"
+@page "/main"
 @using System.ComponentModel.DataAnnotations
 @using RoKa.Services
+@inject NavigationManager Navigation
 @inject IEmailService EmailService
 @inject ILogger<Main> Logger
 
@@ -11,7 +12,15 @@
 
 
 <header class="header">
-    <div style="text-align: center; line-height: 1; margin: 0; padding: 0;">
+    <div style="text-align: left; line-height: 1; margin: 0; padding: 0;">
+        <span style="
+            display: block;
+            margin: 0 0 -10px 2px;
+            font-size: 1.22rem;
+            transform: scaleY(0.78);
+            transform-origin: top;
+        ">Soluciones</span>
+        
         <span style="
             display: block;
             margin: 0;
@@ -20,25 +29,15 @@
             color: var(--neon-green);
             text-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
         ">RoKa</span>
-
-        <span style="
-            display: block;
-            margin: 0;
-            margin-top: -4px;
-            font-size: 1.6rem;
-            transform: scaleY(0.7);
-            transform-origin: top;
-        ">Soluciones</span>
-
     </div>
     
     <nav class="navbar">
-        <a href="#home">Inicio</a>
-        <a href="#services">Servicios</a>
-        <a href="#projects">Proyectos</a>
-        <a href="#testimonials">Testimonios</a>
-        <a href="#about">Nosotros</a>
-        <a href="#contact">Contacto</a>
+        <a href="main/#home">Inicio</a>
+        <a href="main/#services">Servicios</a>
+        <a href="main/#projects">Proyectos</a>
+        <a href="main/#testimonials">Testimonios</a>
+        <a href="main/#about">Nosotros</a>
+        <a href="main/#contact">Contacto</a>
     </nav>
     <div class="menu-icon">☰</div>
 </header>
@@ -210,7 +209,7 @@
         </div>
         <div class="contact-form">
             <h3>Envíanos un Mensaje</h3>
-            <EditForm Model="@contactForm" OnValidSubmit="HandleValidSubmit" FormName="ContactForm" Enhance="false">
+            <EditForm Model="@contactForm" OnValidSubmit="HandleValidSubmit" FormName="ContactForm" Enhance="true">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
 
@@ -239,7 +238,15 @@
                     <InputTextArea id="message" class="form-control" autocomplete="off" @bind-Value="contactForm!.Message" />
                 </div>
 
-                <button type="submit" class="btn">Enviar Mensaje</button>
+                <button type="submit" class="btn btn-primary" disabled="@isSubmitting">
+                    @submitButtonText
+                </button>
+                @if (showSuccessMessage)
+                {
+                    <div class="alert alert-success">
+                        ¡Gracias! Tu mensaje ha sido enviado.
+                    </div>
+                }
             </EditForm>
         </div>
     </div>
@@ -282,42 +289,51 @@
 <script src="js/script.js"></script>
 
 @code {
-
     [SupplyParameterFromForm(FormName = "ContactForm")]
     private ContactFormModel? contactForm { get; set; }
 
     protected override void OnInitialized() => contactForm ??= new();
-    
+
+    private bool isSubmitting = false;
+    private bool showSuccessMessage = false;
+    private string submitButtonText = "Enviar mensaje";
+
     private async Task HandleValidSubmit()
     {
+        if (isSubmitting) return;
+
+        isSubmitting = true;
+        submitButtonText = "Enviando...";
+        showSuccessMessage = false;
+
+        StateHasChanged();
+        await Task.Delay(1);
+
         try
         {
-            // Enviar email de notificación
             await EmailService.SendEmailAsync(
-                "tu-email-destino@gmail.com", // Cambia por tu email
-                $"Nuevo contacto desde la web: {contactForm!.Subject}",
+                "correaedwin159@gmail.com",
+                $"Nuevo contacto desde Plataforma Soluciones RoKa",
                 $"Has recibido un nuevo mensaje de contacto:\n\n" +
-                $"Nombre: {contactForm.Name}\n" +
-                $"Email: {contactForm.Email}\n" +
-                $"Teléfono: {contactForm.Phone}\n" +
-                $"Asunto: {contactForm.Subject}\n\n" +
-                $"Mensaje:\n{contactForm.Message}",
-                contactForm.Name!,
-                contactForm.Email!
+                $"Nombre: {contactForm?.Name}\n" +
+                $"Email: {contactForm?.Email}\n" +
+                $"Teléfono: {contactForm?.Phone}\n" +
+                $"Asunto: {contactForm?.Subject}\n\n" +
+                $"Mensaje:\n{contactForm?.Message}",
+                contactForm?.Name!,
+                contactForm?.Email!
             );
-    
-            Logger.LogInformation("Email enviado exitosamente para contacto de {Name}", contactForm.Name);
-            
-            // Limpiar formulario después del envío exitoso
+
+            Logger.LogInformation("Email enviado exitosamente para contacto de {Name}", contactForm?.Name);
+
             contactForm = new ContactFormModel();
-            
-            // Opcional: Mostrar mensaje de éxito al usuario
-            // StateHasChanged();
+            showSuccessMessage = true;
+
+            StateHasChanged();
         }
         catch (Exception ex)
         {
             Logger.LogError(ex, "Error enviando email para contacto de {Name}", contactForm?.Name);
-            // Aquí podrías mostrar un mensaje de error al usuario
         }
     }
     

@@ -1,6 +1,7 @@
 ﻿# Imagen base del SDK para desarrollo
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS dev
 
+
 # Establece el directorio de trabajo
 WORKDIR /app
 
@@ -14,7 +15,7 @@ RUN dotnet restore
 COPY . .
 
 # Expone el puerto usado por tu aplicación
-EXPOSE 8080
+EXPOSE 8090
 
 # Comando para iniciar dotnet watch en modo desarrollo
-CMD ["dotnet", "run", "--urls=http://0.0.0.0:8080"]
+CMD ["dotnet", "watch", "run", "--urls=http://0.0.0.0:8090"]
